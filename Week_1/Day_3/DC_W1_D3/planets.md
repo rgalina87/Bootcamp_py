@@ -2,6 +2,7 @@
  The Third - Person Effect, Trust in Media,
 and Hostile Media Perceptions 
 
+<<<<<<< HEAD
 ##ABSTRACT
  Research about the way people perceive news media has made progress in
 three parallel avenues. The fi rst used the concept of credibility and trust; the
@@ -14,3 +15,6 @@ regarding media impact matter, albeit indirectly, because people react to these
 perceptions as if they were real. Third, the effects of perceptions of media
 infl uence are amplifi ed when they are coupled with perceptions of media hostility, especially among audiences that are personally and emotionally involved
 in the issues on which media texts report. 
+=======
+##Yariv Tsfati and Jonathan Cohen 
+>>>>>>> try2
