@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="W4_D1_XPGold.css">
+    <title>Game Javascript</title>
+</head>
+<body>
+    <h1>This is an introduction to Javascript</h1>
+    <h3>Explanation of the game : the point of the game is to guess the number that the computer has in mind</h3>
+    <h4>First Part</h4>
+    <ol>
+        <li>Create a function <em>playTheGame</em> that takes no parameter, inside it : </li>
+        <li>Use the function <em>confirm</em> to ask if the user wants to play the game</li> 
+        <li>If he wants to play the game, ask him with a <em>prompt</em> to put a number between 0 and 10</li>
+        <li>Create 3 conditions : 
+            <ol>
+                <li>If he doesn't enter a number <em>alert</em> him "Sorry Not a number, Goodbye"</li>
+                <li>If he enters a number less than 0 and bigger than 10 alert him "Sorry it's not a good number,Goodbye"</li>
+                <li>Else, create a variable named computerNumber that takes a random number between 0 and 10 as a value</li>
+            </ol>
+        </li>
+        <li>If he doesn't want to play the game,prompt him "No problem, Goodbye"</li>
+    </ol>
+
+    <h4>Second Part</h4>
+    <ol>
+        <li>Create a function named <em>test</em> that takes 2 parameters : myNumber and computerNumber,
+        inside this function create a few conditions
+            <ol>
+                <li>If myNumber equals the computerNumber, alert the user that he won</li>
+                <li>If myNumber is bigger than the computerNumber, alert the user that it's bigger and he has to guess again</li>
+                <li>If myNumber is lower than the computerNumber, alert the user that it's lower and he has to guess again</li>
+                <li>If the user guessed more than 3 times, alert him that he can't try again and give him the number that the computer had in mind</li>
+            </ol>
+    </li>
+    </ol>
+    <h4>Third Part</h4>
+        <ol>
+            <li>You have to call the <em>test</em> function somewhere. Find where you have to call it</li>
+            <li>Call it</li>
+        </ol>
+
+
+    <button onclick="playTheGame()">Click to play the game</button>
+
+</body>
+</html>

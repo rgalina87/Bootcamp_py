@@ -1,0 +1,12 @@
+*{
+    font-family: 'PT Sans', sans-serif;
+}
+
+body{
+    padding: 50px
+}
+
+div{
+    font-size: 25px;
+    color : blue
+}
