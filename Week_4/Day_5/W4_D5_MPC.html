@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Calculate</title>
+   <link rel="stylesheet" type="text/css" href="W4_D5_MPC.css">
+</head>
+<body>
+
+<div class="mycalc">
+      <input type="text" name="inputwindow" id="inputwindow">
+      <div>
+         <button type="button" id="one" value="1" onclick="javascript(document.getElementById('one').value)">1</button>
+         <button type="button" id="two" value="2" onclick="javascript(document.getElementById('two').value)">2</button>
+         <button type="button" id="three" value="3" onclick="javascript(document.getElementById('three').value)">3</button>
+         <button type="button" id="plus" value="+" onclick="javascript(document.getElementById('plus').value)">+</button>
+       </div>
+       <div>
+         <button type="button" id="four" value="4" onclick="javascript(document.getElementById('four').value)">4</button>
+         <button type="button" id="five" value="5" onclick="javascript(document.getElementById('five').value)">5</button>
+         <button type="button" id="six" value="6" onclick="javascript(document.getElementById('six').value)">6</button>
+         <button type="button" id="minus" value="-" onclick="javascript(document.getElementById('minus').value)">-</button>
+      </div>
+      <div>
+         <button type="button" id="seven" value="7" onclick="javascript(document.getElementById('seven').value)">7</button>
+         <button type="button" id="eight" value="8" onclick="javascript(document.getElementById('eight').value)">8</button>
+         <button type="button" id="nine" value="9" onclick="javascript(document.getElementById('nine').value)">9</button>
+         <button type="button" id="by" value="*" onclick="javascript(document.getElementById('by').value)">*</button>
+       </div>
+       <div>
+         <button type="button" id="zero" value="0" onclick="javascript(document.getElementById('zero').value)">0</button>
+         <button type="button" id="decimal" value="." onclick="javascript(document.getElementById('decimal').value)">.</button>
+         <button type="button" id="devide" value="/" onclick="javascript(document.getElementById('devide').value)">/</button>
+         <button type="button" id="percent" value="%" onclick="javascript(document.getElementById('percent').value)">%</button>  
+       </div>
+       <div class="results">
+         <button type="button" id="equal" value="=" onclick="calculateResult()">=</button>
+         <button type="button" id="clear" value="" onclick="clearInput(document.getElementById('clear').value)">Clear</button>
+       </div>
+</div>
+<script src="W4_D5_MPC.js"></script>
+    </body>
+</html>
