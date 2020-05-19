@@ -34,11 +34,12 @@ function generateTable(table, data) {
 //don't understand the task
 	let book = Object.keys(title) "+ written by +" Object.keys(author);
 
+	
 	let image = Object.keys(image)[0];
 	image.setAttribute("stile", "width:100");
 
 	let status = Object.key(alreadyRead)[0]
-	if (status=true) {
+	if (status = true) {
 		status.setAttribute("style", "color:red");
 	} else {
 		satatus.setAttribute("style", "none");
