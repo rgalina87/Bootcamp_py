@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W5_D1_DC</title>
+</head>
+<body>
+<button id="btn">Couсou</button>
+
+<script type="text/javascript">
+	let x = document.getElementById("btn");
+
+	x.addEventListener("click", firstFunction(){
+		alert("Hey you are!");
+	})
+	
+	x.addEventListener("mouseover", secondFunction(mouse){
+		mouse.target.style.hover = "red"
+		mouse.target.style.border = "dashed 5px";
+	});
+
+	x.addEventListener("mouseover", thirdFunction);
+	function thirdFunction(mouse) {
+		let b = mouse.cor1;
+		let c = mouse.cor2;
+		let coord = "Coordinates: (" + b + "," + c + ")";
+		document.getElementById("btn").innerHTML = coord;
+	}
+
+x.addEventListener("resize", fourthFunction(){
+	document.getElementById("btn").innerHTML = Math.random()
+});
+
+x.addEventListener("data", fifthFunction(){
+	documrnt.getElementById("btn").innerHTML = Data();
+})
+
+x.addEventListener("doubleclick", sixthFunction(dc){
+	document.getElementById("btn").innerHTML = "Already clicked!"
+});
+
+</script>
+</body>
+</html>

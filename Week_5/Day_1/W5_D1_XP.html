@@ -1,0 +1,135 @@
+<!-- Exercise 1 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W5_D1_XP/1</title>
+</head>
+<body>
+	<article>
+		<h1> Some Facts </h1>
+		<h2> The CHOCOLATE </h2>
+	<p>Chocolate is made from tropical Theobroma cacao tree seeds. Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+	<p> After the European discovery of the Americas, chocolate became very popular in the wider world, and its demand exploded. </p>
+	<p>  Chocolate has since become a popular food product that millions enjoy every day, thanks to its unique, rich, and sweet taste.</p> 
+	<p id="para4"> But what effect does eating chocolate have on our health?</p> 
+</article>
+
+What is your name ?<input type="text" name="userName">
+
+What did you think of the article ?<input type="text" name="questionToUser">
+
+<script type="text/javascript">
+	function task(){
+		let addclass = document.getElementsByTagName("p");
+		addclass.setAttribute('class', 'para-article');
+		//addclass += ' para_article';
+		//addclass.classList.add('para_article')
+	}
+		let para = document.getElementsByTagName("p");
+		para.removeChild(para.lastChiled);
+		// let parent = document.getElementsByTagName("article");
+		// let child = document.getElementsById("para4");
+		// parent.removeChild(chiled);
+
+		let h2 = getElementsByTagName("h2");
+		h2.addEventListener("click", function(remove){
+			let target = remove.target;
+			if (target.id === 'yes') {
+				h2.parentNode.removeChild("h2");
+			}
+		});
+
+		function randomFontSize (size);
+		document.getElementsByTagName("h1").style.fontSize = Math.random(1, 101);
+
+		
+			let p = document.getElementsByTagName("p")
+			p.addEventListener('click', hideParagraph);
+			function hideParagraph (first_para) {
+			let hidde = first_para;
+			if (hidde === 'yes') {
+				para_article > p:first-chiled{
+					display:none;
+				}
+			}
+		}
+
+	let second_p = document.getElementsByTagName("p");
+	let second = second_p.getElementsByClassName('para_article')[0].getElementsByClassName('para_article')[1];
+
+	/*dont get how to creat fadeout using just DOM*/
+	// $(".para_article").click(function () {
+	// 	let fade = $('p:nth-chiled(1)')
+	// 	$fade.fadeout(2000);
+	// })
+
+	let input = getElementsByTagName('input').value = 'in';
+	in.appendChild(input);
+
+</script>
+</body>
+</html>
+
+
+<!-- Exercise 2 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W5_D1_XP/2</title>
+</head>
+<body>
+<p><strong>Hello</strong> I hope you are enjoying <strong>this</strong> class.At the <strong>end</strong> you <strong>will</strong> be great Developers! <strong>Enjoy</strong> the <strong>JavaScript </strong> lessons</p>
+
+<script type="text/javascript">
+
+	function getBold_items() {
+	let bold = document.getElementsByTagName("strong").querySelectorAll();
+}
+	let color = document.getElementsByTagName("strong")
+	function highlight() {
+		color.style.color = "blue";
+	}	
+	function return_normal() {
+		color.style.color = "black"
+	}
+
+	color.addEventListener("MouseOver", highlight);
+	color.addEventListener("MouseOut", return_normal);
+</script>
+</body>
+</html>
+
+<!-- Exercise 3 -->
+
+<!Doctype html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Volume of a Sphere</title> 
+        <style>  
+            body{padding-top:30px;} 
+            label,input{display:block;}  
+        </style> 
+    </head> 
+    <body> 
+        <p>Input radius value and get the volume of a sphere.</p> 
+        <form  id="MyForm"> 
+            <label for="radius">Radius</label><input type="text" name="radius" id="radius" required> 
+            <label for="volume">Volume</label><input type="text" name="volume" id="volume"> 
+            <input type="submit" value="Calculate" id="submit">    
+        </form>
+    <script type="text/javascript">
+
+    	function volum () {
+    		let volum;
+    		let radius = document.getElementsById('radius').value;
+    		radius = Math.abs(radius);
+    		volum = (4/3) * Math.PI * Math.pow(radius, 3);
+    		volum = volum.toFixed(4);
+    		document.getElementsById('volume').value = volume;
+    		return false;
+    	}
+    </script>     
+    </body> 
+</html> 
