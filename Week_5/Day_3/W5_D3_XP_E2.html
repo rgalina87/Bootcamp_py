@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+#main {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: blue;
+}
+#second {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background-color: red;
+  text-align: center;
+  color: black;
+}
+</style>
+
+<div id ="main" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  <div id ="second" draggable="true" ondragstart="drag(event)">Drop me</div>
+  
+<script type="text/javascript" src="W5_D3_XP_E2.js"></script>
+</body>
+</html>

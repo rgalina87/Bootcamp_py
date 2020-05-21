@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W5_D3_DC</title>
+</head>
+<body>
+
+<input class="letters" type="text" name="task">
+
+<script type="text/javascript" src="W5_D3_DC.html">
+
+	let input = document.querySelector("letters");
+	input.addEventListener('keyup', function(e) {
+		this.value.replace(/[^a-zA-Z]+$/, '');
+	});
+	
+</script>
+</body>
+</html>
