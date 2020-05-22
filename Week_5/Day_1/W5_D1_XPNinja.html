@@ -5,8 +5,6 @@
 </head>
 <body>
   <div id="calculator">
-
-
     <form>
       <p>How much was your bill?
         <p>
@@ -35,32 +33,8 @@
     <small id="each">each</small>
   </div>
   <!--totalTip end-->
-
-</div>
-<!--container end-->
-
-<script type="text/javascript" src="main.js">
-
-function calculateTips() {
-	let billAmt = document.getElementById('billamt')
-	let serviceQual = document.getElementById('serviceQual') 
-	let numOfPeople = document.getElementById("numOfPeople")
-		if (serviceQual === 0 || billAmt === 'undefined') {
-			alert("Enter the values!");
-			return;
-		}
-
-		/*Dont understand task from "Create another condition after the first one : ...."*/
-		//if (numOfPeople === 'undefined' || numOfPeople < 1){
-		// 	display = none 
-		// }
-
-	let total = billAmt*serviceQual/numOfPeople;
-	total.toFixed(2);
-}
-
-
-
+<script type="text/javascript" src="W5_D1_XPNinja.js">
 </script>
+</div> 
 </body>
 </html>
