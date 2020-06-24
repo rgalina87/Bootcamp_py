@@ -7,9 +7,9 @@ def f():
     translation = translator.translate(french_words, src="FR", dest="EN")
 
     for x in translation:
-        transl.append(x)
-    # return transl
+        transl.append(x.text)
 
-    tr = {french_words[t]:transl[t] for t in range(4)}
+
+    tr = {french_words[t]: transl[t] for t in range(4)}
     print(tr)
 f()
