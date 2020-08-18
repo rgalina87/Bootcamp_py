@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Welcome</h1>
+    <div class="container">
+    <div>
+    <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Saved Recipes</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">My Recipes</a>
+  </li>
+</ul>
+</div>
+        <div>
+            <a class="btn btn-dark btn-lg" href="{{ url_for('recipe_search') }}" role="button">Search</a>
+            <a class="btn btn-dark btn-lg" href="{{ url_for('recipe_search') }}" role="button">Add My Recipe</a>
+
+        </div>
+{% endblock %}

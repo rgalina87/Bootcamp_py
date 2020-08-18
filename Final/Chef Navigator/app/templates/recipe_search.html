@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <style>
+
+          h5 {
+            font-size: 60px;
+            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+            text-align: center;
+            color: darkgray;
+          }
+          p {
+            font-size: 20px;
+            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+            text-align: center;
+            color: black;
+          }
+
+          form {
+              justify-content: center;
+              margin: -25px 0 0 -25px;
+          }
+
+      </style>
+
+<div class="all">
+    <h5 class="card-title">Welcome to Chef Navigator</h5>
+    <p>Enter your ingredients (min 2). If you have more enter button "Add ingredient"</p>
+
+    <form method="post" class="form-inline my-2 my-lg-0">
+{#        {{ form.csrf_token }}#}
+  <div class="form-row align-items-center d-flex align-items-start flex-column bd-highlight mb-3">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInput"></label>
+      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="1st Ingredient">
+    </div>
+
+  <div class="form-row align-items-center d-flex align-items-start flex-column bd-highlight mb-3">
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInput"></label>
+      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="2nd Ingredient">
+    </div>
+  </div>
+     {% if  %}
+    <div class="col-auto">
+      <button type="submit" class="btn btn-dark mb-2">Add Ingredient</button>
+    </div>
+
+      <div class="col-auto">
+      <button type="submit" class="btn btn-dark mb-2">Search</button>
+    </div>
+  </div>
+</form>
+</div>
+
+{% endblock %}
