@@ -42,7 +42,6 @@
       <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="2nd Ingredient">
     </div>
   </div>
-     {% if  %}
     <div class="col-auto">
       <button type="submit" class="btn btn-dark mb-2">Add Ingredient</button>
     </div>
@@ -53,5 +52,13 @@
   </div>
 </form>
 </div>
+     <script>
+    var $newdiv1 = $( "<div id='inlineFormInput'></div>" ),
+    existingdiv1 = document.getElementById( "inlineFormInput" );
+
+    $( ".all" ).append( $newdiv1);
+
+        </script>
+
 
 {% endblock %}

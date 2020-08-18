@@ -11,13 +11,14 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#">My Recipes</a>
+    <a class="nav-link" href="{{ url_for('my_recipe') }}">My Recipes</a>
   </li>
 </ul>
 </div>
         <div>
             <a class="btn btn-dark btn-lg" href="{{ url_for('recipe_search') }}" role="button">Search</a>
-            <a class="btn btn-dark btn-lg" href="{{ url_for('recipe_search') }}" role="button">Add My Recipe</a>
+            <a class="btn btn-dark btn-lg" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>
 
         </div>
+    </div>
 {% endblock %}

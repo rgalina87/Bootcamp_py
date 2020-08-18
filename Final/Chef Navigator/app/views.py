@@ -17,19 +17,24 @@ def profile():
 
     return flask.render_template("profile.html")
 
+@app.route('/my_recipe')
+def my_recipe():
+    return flask.render_template("my_recipe.html")
+
+@app.route('/add_my_recipe')
+def add_my_recipe():
+    return flask.render_template("add_my_recipe.html")
 
 
-@app.route('/recipe_search')
+@app.route('/recipe_search', methods=['GET', 'POST'])
 def recipe_search():
     return flask.render_template("recipe_search.html")
 
-#??????????????
-# @app.route('/add_ingr/', methods=['GET', 'POST'])
-# def add_ingr():
-#     form = forms.Add_ingr()
-#     if flask.request.method == 'POST':
-#         new_ingr = form.new_ingr
-#     return flask.render_template("recipe_search.html", form=form, new_ingr=new_ingr)
+@app.route('/add_ingr/', methods=['GET', 'POST'])
+def add_ingr():
+    if flask.request.method == "POST":
+
+        return flask.render_template("recipe_search.html")
 
  #проверить линк html
 @app.route('/sign_in', methods=['GET', 'POST'])
@@ -52,7 +57,7 @@ def sign_in():
         return flask.redirect(flask.url_for('index'))
 
 
-    return flask.render_template('sign_in.html', form=form)
+    return flask.render_template("sign_in.html", form=form)
 
 @app.route("/logout", methods=["GET", "POST"])
 def logout():
@@ -75,8 +80,10 @@ def sign_up():
 
         flask.flash(f'Welcome')
 
-        return flask.redirect(flask.url_for("start_page.html"))
+        return flask.redirect(flask.url_for("portfolio.html"))
     else:
         "Error"
 
     return flask.render_template("sign_up.html", form=form)
+
+
