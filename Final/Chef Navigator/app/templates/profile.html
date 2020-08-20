@@ -3,22 +3,24 @@
 {% block content %}
 
 <h1> Welcome</h1>
-    <div class="container">
-    <div>
-    <ul class="nav nav-tabs">
+<div class = container>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Saved Recipes</a>
+    <a class="nav-link active" id="my-recipie-tab" data-toggle="tab" href="#my-recipie" role="tab" aria-controls="my-recipie" aria-selected="true">My Recipie</a>
   </li>
-
   <li class="nav-item">
-    <a class="nav-link" href="{{ url_for('my_recipe') }}">My Recipes</a>
+    <a class="nav-link" id="saved-recipie-tab" data-toggle="tab" href="#saved-recipie" role="tab" aria-controls="saved-recipie" aria-selected="false">Saved Recipie</a>
   </li>
 </ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="my-recipie" role="tabpanel" aria-labelledby="my-recipie-tab">
+      {% with varible="hello" %}
+  {% include 'my_recipe.html' %} {% endwith %}
 </div>
-        <div>
-            <a class="btn btn-dark btn-lg" href="{{ url_for('recipe_search') }}" role="button">Search</a>
-            <a class="btn btn-dark btn-lg" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>
-
-        </div>
-    </div>
+  <div class="tab-pane fade" id="saved-recipie" role="tabpanel" aria-labelledby="saved-recipie-tab">Hi
+           {% with varible="hi" %}
+  {% include 'saved_recipes.html' %} {% endwith %}
+  </div>
+</div>
+</div>
 {% endblock %}

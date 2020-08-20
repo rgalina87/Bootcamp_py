@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<head>
     <style>
 
           h5 {
@@ -23,7 +23,10 @@
           }
 
       </style>
+<<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
 
+<body>
 <div class="all">
     <h5 class="card-title">Welcome to Chef Navigator</h5>
     <p>Enter your ingredients (min 2). If you have more enter button "Add ingredient"</p>
@@ -52,13 +55,13 @@
   </div>
 </form>
 </div>
-     <script>
+     <script type=text/javascript>
     var $newdiv1 = $( "<div id='inlineFormInput'></div>" ),
     existingdiv1 = document.getElementById( "inlineFormInput" );
 
     $( ".all" ).append( $newdiv1);
 
         </script>
-
+</body>
 
 {% endblock %}

@@ -16,13 +16,21 @@ class SignIn(FlaskForm):
 
     submit = wtf.SubmitField("Sign In")
 
-class Recipe_search(FlaskForm):
+class RecipeSearch(FlaskForm):
     first_ingr = wtf.StringField("1st Ingredient", validators=[valid.DataRequired("This field can't be empty")])
     second_ingr = wtf.StringField("2nd Ingredient", validators=[valid.DataRequired("This field can't be empty")])
 
     submit = wtf.SubmitField("Search")
 
-class Add_ingr(FlaskForm):
+class AddIngr(FlaskForm):
     new_ingr = wtf.StringField("Ingredient")
 
     submit = wtf.SubmitField("Add Ingredient")
+
+class AddMyRecipe(FlaskForm):
+    class AddPostForm(FlaskForm):
+        title = wtf.StringField("Title: ")
+        ingredients = wtf.TextAreaField("Ingredients: ")
+        content = wtf.TextAreaField("Description: ")
+
+        submit = wtf.SubmitField("Add Recipe!")

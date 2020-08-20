@@ -3,7 +3,7 @@ import flask_login
 
 
 from . import app, db
-from . import forms, models
+from . import forms, models, process_data
 
 @app.route('/')
 def start_page():
@@ -19,6 +19,7 @@ def profile():
 
 @app.route('/my_recipe')
 def my_recipe():
+
     return flask.render_template("my_recipe.html")
 
 @app.route('/add_my_recipe')
@@ -28,13 +29,16 @@ def add_my_recipe():
 
 @app.route('/recipe_search', methods=['GET', 'POST'])
 def recipe_search():
-    return flask.render_template("recipe_search.html")
-
-@app.route('/add_ingr/', methods=['GET', 'POST'])
-def add_ingr():
+    form = forms.RecipeSearch()
     if flask.request.method == "POST":
 
-        return flask.render_template("recipe_search.html")
+        get_recipe = process_data.search_by_ingrediant(forms.RecipeSearch())
+
+    return flask.render_template("recipe_search.html", form=form, get_recipe=get_recipe)
+
+# @app.route('/add_ingr/', methods=['GET', 'POST'])
+# def add_ingr():
+#         return flask.render_template("recipe_search.html")
 
  #проверить линк html
 @app.route('/sign_in', methods=['GET', 'POST'])

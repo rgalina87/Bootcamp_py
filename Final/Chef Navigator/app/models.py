@@ -1,5 +1,6 @@
 import flask_login
 from flask_login import UserMixin
+import datetime
 
 from . import db, login_mgr
 
@@ -21,3 +22,11 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f'<User {self.name}>'
+
+# class AddMyRecipe(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     title = db.Column(db.String(50), nullable=False)
+#     ingredients = db.Column(db.Text, nullable=False)
+#     content = db.Column(db.Text, nullable=False)
+
+
