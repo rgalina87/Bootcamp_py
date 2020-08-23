@@ -16,54 +16,36 @@ def profile():
 
     return flask.render_template("profile.html")
 
-@app.route('/my_recipe')
-def my_recipe():
+@app.route('/my_recipe/<int:my_recipe_id>')
+def my_recipe(my_recipe_id):
+        my_recipe = models.AddMyRecipe.query.get(my_recipe_id)
+        return flask.render_template("my_recipe.html", my_recipe=my_recipe)
 
-    return flask.render_template("my_recipe.html")
-
-@app.route('/add_my_recipe')
+@app.route('/add_my_recipe', methods=['GET', 'POST'])
 def add_my_recipe():
-    form = forms.AddMyRecipe()
-    if flask.request.method == "POST":
 
-        return flask.render_template("add_my_recipe.html")
+    add_my_recipe = forms.AddMyRecipe()
+
+    return flask.render_template("add_my_recipe.html", form=add_my_recipe)
 
 
 @app.route('/recipe_search', methods=['GET', 'POST'])
 def recipe_search():
     form = forms.RecipeSearch()
-    if flask.request.method == "POST":
+    if form.validate_on_submit():
 
-        get_recipe = process_data.search_by_ingrediant(forms.RecipeSearch())
+        # print(form.ingredients)
 
+        recipes = process_data.search_by_ingredient(ingredients=form.ingredients.data)
 
-    return flask.render_template("results.html", form=form)
+        return flask.render_template("results.html", recipes=recipes)
+
+    return flask.render_template("recipe_search.html", form=form)
 
 @app.route('/recipe/<int:recipe_id>', methods=['GET', 'POST'])
 def recipe(recipe_id):
     return flask.render_template("recipe.html", recipe_id=recipe_id)
 
-# @app.route('/recipe_search', methods=['GET', 'POST'])
-# def recipe_search():
-#     return flask.render_template("recipe_search.html")
-
-@app.route('/add_ingr/', methods=['GET', 'POST'])
-def add_ingr():
-        return flask.render_template("recipe_search.html")
-#     form = forms.AddIngr()
-#     if flask.request.method == 'POST':
-#         add_ingr = flask.request.form['content']
-#         new_ingr = models.AddIngr(add_ingr=add_ingr)
-#
-#         try:
-#             db.session.add(new_ingr)
-#             db.session.commit()
-#             return flask.redirect(flask.url_for('recipe_search'))
-#         except:
-#             return "Error to add a task"
-#     else:
-#         new_ingr = models.AddIngr.query.all()
-#         return flask.render_template("recipe_search.html", new_ingr=new_ingr, form=form)
 
 @app.route('/results/', methods=['GET', 'POST'])
 def result():

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<html>
 <head>
     <style>
 
@@ -24,14 +25,16 @@
 
           .all {
               margin-top: 50px;
+              background-image: url({{ url_for('static', filename="search.jpeg") }});
           }
 
           {#body{#}
-          {#    background-image: url({{ url_for('static', filename="cats-cat-fridge-humor-wallpaper-preview.jpg") }});#}
+          {#    background-image: url({{ url_for('static', filename="search.jpeg") }});#}
+          {#    background-size: 1000px 1000px;#}
           {#}#}
 
       </style>
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
 </head>
 
 <body>
@@ -39,37 +42,39 @@
     <h5 class="card-title">Welcome to Chef Navigator</h5>
     <p>Enter your ingredients (min 2). If you have more enter button "Add ingredient"</p>
 
-    <form method="post" class="form-inline my-2 my-lg-0">
-{#        {{ form.csrf_token }}#}
-  <div class="form-row align-items-center d-flex align-items-start flex-column bd-highlight mb-3">
-    <div class="col-auto">
-      <label class="sr-only" for="inlineFormInput"></label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="1st Ingredient">
-    </div>
 
   <div class="form-row align-items-center d-flex align-items-start flex-column bd-highlight mb-3">
+          <form method="post" class="form-inline my-2 my-lg-0">
+        {{ form.hidden_tag() }}
+{#    <div class="col-auto">#}
+      {{ form.ingredients.label }}<br>
+      {{ form.ingredients (size=32, pleceholder="First Ingredient", id = "ingredients_list") }}
+{#    </div>#}
+
     <div class="col-auto">
-      <label class="sr-only" for="inlineFormInput"></label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="2nd Ingredient">
-    </div>
-  </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-dark mb-2">Add Ingredient</button>
+      <button type="button" class="btn btn-dark mb-2" onclick="add_ingredient()">Add Ingredient</button>
     </div>
 
       <div class="col-auto">
-      <button type="submit" class="btn btn-dark mb-2">Search</button>
+{#      <button type="button" class="btn btn-dark mb-2">Search</button>#}
+       {{ form.submit(class="btn btn-success mb-2") }}
     </div>
+          </form>
   </div>
-</form>
-</div>
-     <script type=text/javascript>
-    var $newdiv1 = $( "<div id='inlineFormInput'></div>" ),
-    existingdiv1 = document.getElementById( "inlineFormInput" );
 
-    $( ".all" ).append( $newdiv1);
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+     <script type=text/javascript>
+     {#function add_ingredient(){#}
+     {#    var child_nb = $('#ingredients_list').children().length +1;#}
+     {#    $('#ingredients_list').append("\#}
+        {# <div>\#}
+        {#    <label for="ingredients_$(child_nb)"></label>#}
+        {#    <input type="text" class="form-control mb-2" id="ingredients_$(child_nb)" placeholder="ingredients_$(child_nb)">#}
+        {#</div>\");#}
+     }
 
         </script>
 </body>
-
+</html>
 {% endblock %}

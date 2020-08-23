@@ -28,7 +28,7 @@ class NewUser(db.Model, UserMixin, ModelMixin):
           backref="followed_by"
     )
 
-    add_my_recipe = db.relationship("AddMyRecipe", backref="User")
+    add_my_recipe = db.relationship("AddMyRecipe", backref="NewUser")
 
     def add_my_recipe(self, post_obj):
         self.posts.append(post_obj)
@@ -66,15 +66,9 @@ class NewUser(db.Model, UserMixin, ModelMixin):
             flask_login.login_user(user)
             return user
 
-class RecipeSearch(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    ingr = db.Column(db.String(50))
 
-class AddIngr(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    add_ingr = db.Column(db.String())
 
-class AddMyRecipe(db.Model, ModelMixin):
+class AddRecipe(db.Model, ModelMixin):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
     ingredients = db.Column(db.Text, nullable=False)
