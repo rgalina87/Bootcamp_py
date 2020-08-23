@@ -1,8 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
+<head>
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+    }
 
-<h1> Welcome</h1>
+    #back {
+        background-image: url({{ url_for('static', filename="cats-cat-fridge-humor-wallpaper-preview.jpg") }});
+    }
+
+</style>
+ </head>
+
+ <body>
+{#        {% if current_user.is_authenticated %}#}
+ <div id="back">
+<h1> Welcome, {{ name }}</h1>
 <div class = container>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
@@ -17,10 +33,33 @@
       {% with varible="hello" %}
   {% include 'my_recipe.html' %} {% endwith %}
 </div>
-  <div class="tab-pane fade" id="saved-recipie" role="tabpanel" aria-labelledby="saved-recipie-tab">Hi
+  <div class="tab-pane fade" id="saved-recipie" role="tabpanel" aria-labelledby="saved-recipie-tab">
            {% with varible="hi" %}
   {% include 'saved_recipes.html' %} {% endwith %}
   </div>
 </div>
 </div>
+ </div>
+</body>
+{#    {% endif %}#}
+{% if current_user.is_authenticated %}
+        <a href="{{ url_for('logout') }}" class="navbar-item">
+        Logout
+    </a>
+    {% endif %}
+
+{#    {% if not current_user.is_authenticated %}#}
+{#{% with messages = get_flashed_messages() %}#}
+{#{% if messages %}#}
+{#    <div class="notification is-danger">#}
+{#        {{ messages[0] }}. Please <a href="{{ url_for('sign_in') }}">SignIn</a>.#}
+{#        <a href="{{ url_for('sign_up') }}">or Sign_up</a>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% endwith %}#}
+{#<form method="POST" action="/sign_up">#}
+{#        <a class="nav-link" href="{{ url_for('sign_in') }}">Sign In</a>#}
+{#      <a class="nav-link" href="{{ url_for('sign_up') }}">Sign Up</a>#}
+{#</form>#}
+{#    {% endif %}#}
 {% endblock %}

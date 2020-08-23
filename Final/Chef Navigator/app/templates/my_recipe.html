@@ -1,7 +1,53 @@
-
-
 {% block content %}
+<style>
 
+
+</style>
     <h4>CouCou</h4>
+<div class="row row-cols-1 row-cols-md-3">
+  <div class="col mb-4">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+{#        <a href="/delete/{{my_recipe.id}}" class="btn btn-danger">Delete</a>#}
+{#        <a href="/update/{{my_recipe.id}}" class="btn btn-danger">Update</a>#}
+      </div>
+    </div>
+  </div>
+{#  <div class="col mb-4">#}
+{#    <div class="card">#}
+{#      <img src="..." class="card-img-top" alt="...">#}
+{#      <div class="card-body">#}
+{#        <h5 class="card-title">Card title</h5>#}
+{#        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+</div>
+
+    <div class="btn">
+    <a class="btn btn-dark btn-lg " href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>
+    <a class="btn btn-dark btn-lg" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>
+    </div>
 
 {% endblock %}

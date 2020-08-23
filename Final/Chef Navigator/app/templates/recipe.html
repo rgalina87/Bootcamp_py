@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+
+    .card {
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    </style>
+
+    {{ recipe_id }}
+<div class="container">
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="..." class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <button class="btn btn-dark btn-md" type="submit">Save to my CookBook</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+

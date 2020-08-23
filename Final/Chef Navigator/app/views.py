@@ -1,7 +1,6 @@
 import flask
 import flask_login
 
-
 from . import app, db
 from . import forms, models, process_data
 
@@ -24,7 +23,10 @@ def my_recipe():
 
 @app.route('/add_my_recipe')
 def add_my_recipe():
-    return flask.render_template("add_my_recipe.html")
+    form = forms.AddMyRecipe()
+    if flask.request.method == "POST":
+
+        return flask.render_template("add_my_recipe.html")
 
 
 @app.route('/recipe_search', methods=['GET', 'POST'])
@@ -34,11 +36,39 @@ def recipe_search():
 
         get_recipe = process_data.search_by_ingrediant(forms.RecipeSearch())
 
-    return flask.render_template("recipe_search.html", form=form, get_recipe=get_recipe)
 
-# @app.route('/add_ingr/', methods=['GET', 'POST'])
-# def add_ingr():
-#         return flask.render_template("recipe_search.html")
+    return flask.render_template("results.html", form=form)
+
+@app.route('/recipe/<int:recipe_id>', methods=['GET', 'POST'])
+def recipe(recipe_id):
+    return flask.render_template("recipe.html", recipe_id=recipe_id)
+
+# @app.route('/recipe_search', methods=['GET', 'POST'])
+# def recipe_search():
+#     return flask.render_template("recipe_search.html")
+
+@app.route('/add_ingr/', methods=['GET', 'POST'])
+def add_ingr():
+        return flask.render_template("recipe_search.html")
+#     form = forms.AddIngr()
+#     if flask.request.method == 'POST':
+#         add_ingr = flask.request.form['content']
+#         new_ingr = models.AddIngr(add_ingr=add_ingr)
+#
+#         try:
+#             db.session.add(new_ingr)
+#             db.session.commit()
+#             return flask.redirect(flask.url_for('recipe_search'))
+#         except:
+#             return "Error to add a task"
+#     else:
+#         new_ingr = models.AddIngr.query.all()
+#         return flask.render_template("recipe_search.html", new_ingr=new_ingr, form=form)
+
+@app.route('/results/', methods=['GET', 'POST'])
+def result():
+    return flask.render_template("results.html")
+
 
  #проверить линк html
 @app.route('/sign_in', methods=['GET', 'POST'])
@@ -46,7 +76,7 @@ def sign_in():
     form = forms.SignIn()
     if form.validate_on_submit():
         user_name = form.name.data
-        user = models.User.query.filter_by(name=user_name).first()
+        user = models.NewUser.query.filter_by(name=user_name).first()
         if user is None:
             flask.flash(f"User {user_name} doesn't exist", 'error')
             return flask.render_template('sign_in.html', form=form)
@@ -73,7 +103,7 @@ def logout():
 def sign_up():
     form = forms.NewUser()
     if form.validate_on_submit():
-        user = models.User(
+        user = models.NewUser(
             name=form.name.data,
             email=form.email.data,
             password=form.password.data
