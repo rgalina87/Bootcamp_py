@@ -63,11 +63,24 @@
     </div>
     <div class="col-auto">
 
-        {{ form.submit(class="btn btn-dark") }}
-{#      <button type="submit" class="btn btn-dark mb-2">Sign In</button>#}
+{#        {{ form.submit(class="btn btn-dark") }}#}
+      <button type="submit" class="btn btn-dark mb-2">Sign In</button>
     </div>
   </div>
 </form>
 </div>
-
+{#        {{ form.csrf_token }}#}
+{#        <div class="form-group">#}
+{#            {{form.name.label}}<br>#}
+{#            {{ form.name(class="col-auto")}}#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            {{form.password.label}}<br>#}
+{#            {{ form.password(class="col-auto")}}#}
+{#        </div>#}
+{##}
+{#        {{ form.submit() }}#}
+{#  </div>#}
+{#</form>#}
+{#</div>#}
 {% endblock %}

@@ -31,12 +31,12 @@
     <h5 class="card-title">Welcome to Chef Navigator</h5>
     <p>Please Create a Cookbook to Save recipes</p>
 
-    <form method="post" class="form-inline my-2 my-lg-0">
+    <form method="post" action="/sign_up" class="form-inline my-2 my-lg-0">
         {{ form.csrf_token }}
   <div class="form-row align-items-center d-flex align-items-start flex-column bd-highlight mb-3">
     <div class="col-auto">
       <label class="sr-only" for="inlineFormInput">Username</label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Usename">
+      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Username">
     </div>
       <div class="col-auto">
       <label class="sr-only" for="exampleFormControlInput1">Email address</label>

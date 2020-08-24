@@ -15,22 +15,24 @@ class NewUser(db.Model, UserMixin, ModelMixin):
     email = db.Column(db.String(1000), unique=True)
     password = db.Column(db.String(100), unique=True)
 
-    followers_table = db.Table('followers',
-                               db.Column("follower_id", db.Integer(), db.ForeignKey("user.id")),
-                               db.Column("followed_id", db.Integer(), db.ForeignKey('user.id'))
-                               )
+    # followers_table = db.Table('followers',
+    #                            db.Column("follower_id", db.Integer(), db.ForeignKey("user.id")),
+    #                            db.Column("followed_id", db.Integer(), db.ForeignKey('user.id'))
+    #                            )
+    #
+    # following = db.relationship(
+    #       "NewUser",
+    #       secondary=followers_table,
+    #       primaryjoin=(followers_table.c.follower_id  == id),
+    #       secondaryjoin=(followers_table.c.followed_id == id),
+    #       backref="followed_by"
+    # )
 
-    following = db.relationship(
-          "User",
-          secondary=followers_table,
-          primaryjoin=(followers_table.c.follower_id  == id),
-          secondaryjoin=(followers_table.c.followed_id == id),
-          backref="followed_by"
-    )
+    # add_my_recipe = db.relationship("AddRecipe", backref="user")
 
-    add_my_recipe = db.relationship("AddMyRecipe", backref="NewUser")
+    # user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
-    def add_my_recipe(self, post_obj):
+    def add_my_post(self, post_obj):
         self.posts.append(post_obj)
         self.update()
 
@@ -55,9 +57,6 @@ class NewUser(db.Model, UserMixin, ModelMixin):
 
         db.session.commit()
 
-    def __repr__(self):
-        return f'<User {self.name}>'
-
     @classmethod
     def authenticate(cls, mail, password):
         user = cls.query.filter_by(email=mail).first()
@@ -66,6 +65,8 @@ class NewUser(db.Model, UserMixin, ModelMixin):
             flask_login.login_user(user)
             return user
 
+    def __repr__(self):
+        return f'<User {self.name}>'
 
 
 class AddRecipe(db.Model, ModelMixin):
@@ -74,7 +75,9 @@ class AddRecipe(db.Model, ModelMixin):
     ingredients = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
-    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+
+
+
 
 
 
