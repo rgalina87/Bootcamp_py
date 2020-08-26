@@ -18,7 +18,7 @@
        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-link" href="{{ url_for('recipe_search') }}">Recipe Search</a>
-      <a class="nav-link" href="{{ url_for('profile') }}">My CookBook<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="{{ url_for('.profile', user=user_id) }}">My CookBook<span class="sr-only">(current_user)</span></a>
       <a class="nav-link" href="{{ url_for('sign_in') }}">Sign In</a>
       <a class="nav-link" href="{{ url_for('sign_up') }}">Sign Up</a>
 {#      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>#}

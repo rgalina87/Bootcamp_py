@@ -17,7 +17,7 @@ class SignIn(FlaskForm):
     submit = wtf.SubmitField("Sign In")
 
 class RecipeSearch(FlaskForm):
-    ingredients = wtf.FieldList(wtf.StringField("Ingredients"), min_entries=1)
+    ingredients = wtf.FieldList(wtf.StringField("Ingredients", render_kw={"class": "form-control"}), min_entries=1)
 
     submit = wtf.SubmitField("Search")
 

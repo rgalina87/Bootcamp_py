@@ -1,78 +1,38 @@
-{#{% block content %}#}
-{#    <style>#}
-{##}
-{#          h5 {#}
-{#            font-size: 80px;#}
-{#            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;#}
-{#            text-align: center;#}
-{#            color: darkgray;#}
-{#          }#}
-{#          p {#}
-{#            font-size: 30px;#}
-{#            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;#}
-{#            text-align: center;#}
-{#            color: black;#}
-{#          }#}
-{##}
-{#    </style>#}
-{#    <h5 class="card-title" id="card_title">Chef Navigator</h5>#}
-{#<p>Here you can add your recipes</p>#}
-{##}
-{#<form method="post" class="needs-validation align-items-center d-flex align-items-start flex-column bd-highlight mb-3" novalidate>#}
-{#    <h2> {{ post.title }}</h2>#}
-{#    <div class="post-content">#}
-{#        <li>#}
-{#            {{ post.ingredients }}#}
-{#        </li>#}
-{##}
-{#        <p>#}
-{#            {{ post.description }}#}
-{#        </p>#}
-{#        <small>#}
-{##}
-{#            By {{ post.user.name }} on {{ post.created_at }}#}
-{#        </small>#}
-{#    </div>#}
-{#  <div class="form-row">#}
-{#    <div class="col-md-12 mb-3">#}
-{#      <label for="validationCustom01">Title</label>#}
-{#      <input type="text" class="form-control" id="validationCustom01" value="Title" required>#}
-{#      <div class="valid-feedback">#}
-{#        Looks good!#}
-{#      </div>#}
-{#    </div>#}
-{#    <div class="col-md-12 mb-3">#}
-{#      <label for="validationCustom02">Ingredients</label>#}
-{#      <input type="text" class="form-control" id="validationCustom02" value="Ingredients" required>#}
-{#      <div class="valid-feedback">#}
-{#        Looks good!#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#  <div class="form-row">#}
-{#    <div class="col-md-12 mb-3">#}
-{#      <label for="validationCustom03">Description</label>#}
-{#      <input type="text" class="form-control" id="validationCustom03" value="Description" required>#}
-{#      <div class="valid-feedback">#}
-{#        Looks good!#}
-{#      </div>#}
-{#    </div>#}
+{% block content %}
+    <style>
 
-{#  <div class="form-group">#}
-{#    <div class="form-check">#}
-{#      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>#}
-{#      <label class="form-check-label" for="invalidCheck">#}
-{#        Agree to terms and conditions#}
-{#      </label>#}
-{#      <div class="invalid-feedback">#}
-{#        You must agree before submitting.#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#      <div>#}
-{#  <button class="btn btn-dark" type="submit">Add My Recipe</button>#}
-{#</div>#}
-{#  </div>#}
-{#</form>#}
+          h5 {
+            font-size: 80px;
+            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+            text-align: center;
+            color: darkgray;
+          }
+          p {
+            font-size: 30px;
+            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+            text-align: center;
+            color: black;
+          }
 
-{#{% endblock %}#}
+    </style>
+    <h5 class="card-title" id="card_title">Chef Navigator</h5>
+<p>Here you can add your recipes</p>
+
+<form method="post" class="needs-validation align-items-center d-flex align-items-start flex-column bd-highlight mb-3" novalidate>
+    <h2> {{ post.title }}</h2>
+    <div class="post-content">
+        <li>
+            {{ post.ingredients }}
+        </li>
+
+        <p>
+            {{ post.description }}
+        </p>
+        <small>
+
+            By {{ post.user.name }} on {{ post.created_at }}
+        </small>
+    </div>
+</form>
+
+{% endblock %}

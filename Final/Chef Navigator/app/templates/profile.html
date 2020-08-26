@@ -8,57 +8,9 @@
         margin-top: 50px;
     }
 
-    #back {
-        background-image: url({{ url_for('static', filename="cats-cat-fridge-humor-wallpaper-preview.jpg") }});
-    }
-
-</style>
- </head>
-
- <body>
-        {% if current_user.is_authenticated %}
- <div id="back">
-<h1> Welcome, {{ current_user.name }}</h1>
-<div class = container>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-{#  <li class="nav-item">#}
-{#    <a class="nav-link active" id="my-recipie-tab" data-toggle="tab" href="#my-recipie" role="tab" aria-controls="my-recipie" aria-selected="true">My Recipie</a>#}
-{#  </li>#}
-  <li class="nav-item">
-    <a class="nav-link" id="saved-recipie-tab" data-toggle="tab" href="#saved-recipie" role="tab" aria-controls="saved-recipie" aria-selected="false">Saved Recipie</a>
-  </li>
-</ul>
-{#<div class="tab-content" id="myTabContent">#}
-{#  <div class="tab-pane fade show active" id="my-recipie" role="tabpanel" aria-labelledby="my-recipie-tab">#}
-{#      {% with varible="hello" %}#}
-{#  {% include 'my_recipe.html' %} {% endwith %}#}
-{#</div>#}
-  <div class="tab-pane fade" id="saved-recipie" role="tabpanel" aria-labelledby="saved-recipie-tab">
-           {% with varible="hi" %}
-  {% include 'saved_recipes.html' %} {% endwith %}
-  </div>
-</div>
-</div>
- </div>
-</body>
-    {% endif %}
-
-{% if current_user.is_authenticated %}
-        <a href="{{ url_for('logout') }}" class="navbar-item">
-        Logout
-    </a>
-    {% endif %}
-
-    {% if not current_user.is_authenticated %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    <div class="notification is-danger">
-        {{ messages[0] }}. Please <a href="{{ url_for('sign_in') }}">SignIn</a>.
-        <a href="{{ url_for('sign_up') }}">or Sign_up</a>
-    </div>
-{% endif %}
-{% endwith %}
-<style>
+    {##back {#}
+    {#    background-image: url({{ url_for('static', filename="cats-cat-fridge-humor-wallpaper-preview.jpg") }});#}
+    {#}#}
 
           p {
             font-size: 25px;
@@ -72,19 +24,64 @@
             margin-top: 50px;
           }
 </style>
-<form method="POST" action="/sign_up">
-    <div class="card bg-dark text-white">
-  <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">
-<div class="card-img-overlay">
-            <p class="card-text">SignIn or Create Your CookBook</p>
-    <div class="container">
-        <a class="btn btn-dark col-md-2 col-md-offset-4 text-center" href="{{ url_for('sign_in') }}">Sign In</a>
-      <a class="btn btn-dark col-md-2 col-md-offset-4 text-center" href="{{ url_for('sign_up') }}">Sign Up</a>
-    </div>
+ </head>
+
+ <body>
+{#        {% if current_user.is_authenticated %}#}
+ <div id="back">
+<h1> Welcome, {{ current_user.name }}</h1>
+<div class = container>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="my-recipie-tab" data-toggle="tab" href="#my-recipie" role="tab" aria-controls="my-recipie" aria-selected="true">My Recipie</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="saved-recipie-tab" data-toggle="tab" href="#saved-recipie" role="tab" aria-controls="saved-recipie" aria-selected="false">Saved Recipie</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="my-recipie" role="tabpanel" aria-labelledby="my-recipie-tab">
+      {% with varible="hello" %}
+  {% include 'my_recipe.html' %} {% endwith %}
 </div>
-    </div>
-</form>
-    {% endif %}
+  <div class="tab-pane fade" id="saved-recipie" role="tabpanel" aria-labelledby="saved-recipie-tab">
+           {% with varible="hi" %}
+  {% include 'saved_recipes.html' %} {% endwith %}
+  </div>
+</div>
+</div>
+ </div>
+</body>
+{#    {% endif %}#}
+
+{#{% if current_user.is_authenticated %}#}
+{#        <a href="{{ url_for('logout') }}" class="navbar-item">#}
+{#        Logout#}
+{#    </a>#}
+{#    {% endif %}#}
+{##}
+{#    {% if not current_user.is_authenticated %}#}
+{#{% with messages = get_flashed_messages() %}#}
+{#{% if messages %}#}
+{#    <div class="notification is-danger">#}
+{#        {{ messages[0] }}. Please <a href="{{ url_for('sign_in') }}">SignIn</a>.#}
+{#        <a href="{{ url_for('sign_up') }}">or Sign_up</a>#}
+{#    </div>#}
+{#{% endif %}#}
+{#{% endwith %}#}
+{#<form method="POST" action="/sign_up">#}
+{#    <div class="card bg-dark text-white">#}
+{#  <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">#}
+{#<div class="card-img-overlay">#}
+{#            <p class="card-text">SignIn or Create Your CookBook</p>#}
+{#    <div class="container">#}
+{#        <a class="btn btn-dark col-md-2 col-md-offset-4 text-center" href="{{ url_for('sign_in') }}">Sign In</a>#}
+{#      <a class="btn btn-dark col-md-2 col-md-offset-4 text-center" href="{{ url_for('sign_up') }}">Sign Up</a>#}
+{#    </div>#}
+{#</div>#}
+{#    </div>#}
+{#</form>#}
+{#    {% endif %}#}
 {% endblock %}
 
 

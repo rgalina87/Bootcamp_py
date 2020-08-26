@@ -8,7 +8,7 @@ from . import forms, models, process_data
 def start_page():
     return flask.render_template("start_page.html")
 
-# @app.route('/profile/<int:user_id>')
+# @app.route('/profile/<int:user_id>', methods=['GET', 'POST'])
 # def profile(user_id):
 #     user = models.NewUser.query.get(user_id)
 #     if not user:
@@ -19,18 +19,19 @@ def start_page():
 def profile():
     return flask.render_template("profile.html")
 
-# @app.route('/add_my_recipe', methods=['GET', 'POST'])
-# def add_my_recipe():
-#
-#     add_my_post = forms.AddRecipe()
-#
-#     return flask.render_template("add_my_recipe.html", form=add_my_post)
+@app.route('/add_my_recipe', methods=['GET', 'POST'])
+def add_my_recipe():
 
-# @app.route("/post/<int:post_id>")
-# def view_post(post_id):
-#     post = models.AddRecipe.query.get(post_id)
-#
-#     return flask.render_template("my_recipe.html", post=post)
+    add_my_post = forms.AddRecipe()
+
+    return flask.render_template("add_my_recipe.html", form=add_my_post)
+
+@app.route("/post/<int:post_id>")
+def view_post(post_id):
+
+    post = models.AddRecipe.query.get(post_id)
+
+    return flask.render_template("my_recipe.html", post=post)
 
 
 @app.route('/recipe_search', methods=['GET', 'POST'])
@@ -42,18 +43,23 @@ def recipe_search():
 
         recipes = process_data.search_by_ingredient(ingredients=form.ingredients.data)
 
+        print(recipes)
+
         return flask.render_template("results.html", recipes=recipes)
 
     return flask.render_template("recipe_search.html", form=form)
 
-# @app.route('/recipe/<int:recipe_id>', methods=['GET', 'POST'])
-# def recipe(recipe_id):
-#     return flask.render_template("recipe.html", recipe_id=recipe_id)
 
+@app.route('/results', methods=['GET', 'POST'])
+def result():
 
-# @app.route('/results/', methods=['GET', 'POST'])
-# def result():
-#     return flask.render_template("results.html")
+    return flask.render_template("results.html")
+
+@app.route('/saved_recipes')
+def saved_recipes():
+
+    return flask.render_template("saved_recipes.html")
+
 
 
  #проверить линк html
@@ -85,9 +91,9 @@ def sign_up():
     form = forms.SignIn()
     if form.validate_on_submit():
         user = models.NewUser(
-            Name=form.name.data,
-            Email=form.email.data,
-            Password=form.password.data
+            name=form.name.data,
+            email=form.email.data,
+            password=form.password.data,
                    )
 
         db.session.add(user)
