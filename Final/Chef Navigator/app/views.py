@@ -26,7 +26,7 @@ def follow_user(user_id):
 
     return flask.redirect(flask.url_for('profile', user_id=user_id))
 
-@app.route('/add_my_recipe', methods=['GET', 'POST'])
+@app.route('/add_my_post', methods=['GET', 'POST'])
 def add_my_post():
 
     add_my_post = forms.AddRecipe()

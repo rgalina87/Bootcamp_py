@@ -30,9 +30,8 @@ class User(db.Model, UserMixin, ModelMixin):
           backref="followed_by"
     )
 
-    add_my_recipe = db.relationship("AddRecipe", backref="user")
+    add_my_post = db.relationship("AddRecipe", backref="user")
 
-    # user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
     def add_my_post(self, post_obj):
         self.posts.append(post_obj)
@@ -77,7 +76,7 @@ class AddRecipe(db.Model, ModelMixin):
     ingredients = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
-    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    # user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
 # class SearchResult(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
