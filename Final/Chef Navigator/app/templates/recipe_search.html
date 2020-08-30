@@ -19,52 +19,95 @@
           }
 
           form {
-              justify-content: center;
-              margin: -25px 0 0 -25px;
+              margin: -50px 0px 0px -50px;
+              padding: 50px 50px 50px 50px;
           }
 
-      </style>
+          ul {
+              list-style-type: none;
+              margin: 0px 0 0 50px;
+              font-size: 25px;
+              justify-content: center;
+          }
+
+          .container{
+              text-align: center;
+              margin-top: 50px;
+          }
+
+          .form-group{
+              margin-bottom: 10px;
+          }
+
+          .form-control{
+              margin-bottom: 5px;
+          }
+
+          .c{
+              width: 30rem;
+              text-align: center;
+              margin-left: 500px;
+          }
+
+          .btn{
+            margin-left: 7em;
+          }
+
+          .btn2{
+              margin-left: 10rem;
+          }
+
+          body{
+              background-color: #a76d43;
+          }
+
+    </style>
 
 </head>
 
 <body>
 <div class="container">
     <h5 class="card-title">Welcome to Chef Navigator</h5>
-    <p>Enter your ingredients (min 2). If you have more enter button "Add ingredient"</p>
-<form method="post">
+    <p>Enter your ingredients. If you have more enter button "Add ingredient"</p>
+</div>
+
+
+<div class="c">
+<form method="post" class="">
 
   <div class="form-group">
-
         {{ form.hidden_tag() }}
-    <div class="col-auto form-group">
-{#        <input class="form-control form-control-md" type="text" placeholder="Ingredient" id="ingredient_list">#}
-      <p>
-{#      {{ form.ingredients.label }}<br>#}
-      {{ form.ingredients (size=32, class="form-group", pleceholder="First Ingredient", id = "ingredients_list") }}
-    </div>
-</p>
-    <div class="col-auto form-group">
-      <button type="button" class="btn btn-dark form-control" onclick="add_ingredient()">Add Ingredient</button>
+    <div class="form-group ">
+      {{ form.ingredients(size=32, id = "ingredients_list") }}
     </div>
 
-      <div class="col-auto form-group">
-{#      <button type="button" class="btn btn-success mb-2">Search</button>#}
+    <div class="col-6 col-md-6 form-group">
+      <button type="button" class="btn btn-dark form-control btn2" onclick="add_ingredient()">Add Ingredient</button>
+    </div>
+
+      <div class="col-6 col-md-8 form-group">
        {{ form.submit(class="btn btn-success form-control") }}
     </div>
   </div>
-
+{#        <button type="button" class="close" aria-label="Close">#}
+{#  <span aria-hidden="true">&times;</span>#}
+{#</button>#}
           </form>
   </div>
-
 </div>
+</div>
+</body>
+
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
      <script>
      function add_ingredient(){
-         var child_nb = $('#ingredients_list').children().length +1;
+         var child_nb = $('#ingredients_list').children().length;
          $('#ingredients_list').append(`\
-         <div>\
-            <input type="text" class="form-control" id="ingredients_${child_nb}">\
-        </div>`);
+            <div>\
+            <input class="form-control" id="ingredients-${child_nb}" name="ingredients-${child_nb}" type="text"
+            value="">\
+            </div>\
+             `);
      }
      </script>
 </body>

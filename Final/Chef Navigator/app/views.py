@@ -4,27 +4,39 @@ import flask_login
 from . import app, db, login_mgr
 from . import forms, models, process_data
 
+
 @app.route('/')
 def start_page():
     return flask.render_template("start_page.html")
 
-# @app.route('/profile/<int:user_id>', methods=['GET', 'POST'])
-# def profile(user_id):
-#     user = models.NewUser.query.get(user_id)
-#     if not user:
-#         flask.abort(404)
-#     return flask.render_template("profile.html", user=user)
-
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    return flask.render_template("profile.html")
+    user = flask_login.current_user
+    if not user:
+        flask.abort(404)
+    return flask.render_template("profile.html", user=user)
+
+
+@app.route("/profile/<int:user_id>/follow")
+def follow_user(user_id):
+    if flask_login.current_user.is_anonymous:
+        return flask.redirect(flask.url_for('sign_in'))
+
+    flask_login.current_user.follow(user_id)
+
+    return flask.redirect(flask.url_for('profile', user_id=user_id))
 
 @app.route('/add_my_recipe', methods=['GET', 'POST'])
-def add_my_recipe():
+def add_my_post():
 
     add_my_post = forms.AddRecipe()
 
     return flask.render_template("add_my_recipe.html", form=add_my_post)
+
+# @app.route('/add_my_recipe', methods=['GET', 'POST'])
+# def add_my_recipe():
+#
+#     return flask.render_template("add_my_recipe.html")
 
 @app.route("/post/<int:post_id>")
 def view_post(post_id):
@@ -42,55 +54,49 @@ def recipe_search():
         print(form.ingredients)
 
         recipes = process_data.search_by_ingredient(ingredients=form.ingredients.data)
-
         print(recipes)
-
         return flask.render_template("results.html", recipes=recipes)
 
     return flask.render_template("recipe_search.html", form=form)
 
 
-@app.route('/results', methods=['GET', 'POST'])
-def result():
-
-    return flask.render_template("results.html")
-
 @app.route('/saved_recipes')
 def saved_recipes():
 
+            
+
     return flask.render_template("saved_recipes.html")
 
-
-
- #проверить линк html
 @app.route("/sign_in", methods=["GET", "POST"])
 def sign_in():
 
     form = forms.SignIn()
     if form.validate_on_submit():
-        user = models.NewUser.authenticate(
+        user = models.User.authenticate(
             form.email.data,
             form.password.data
         )
+
         if user is not None:
             flask.flash("Login successful", 'success')
-            return flask.redirect(flask.url_for('portfolio'))
+            return flask.redirect(flask.url_for('profile'))
 
         flask.flash("Wrong user mail or password", 'danger')
-
+    else:
+        print(form.errors)
     return flask.render_template('sign_in.html', form=form)
 
 @app.route("/logout", methods=["GET", "POST"])
 def logout():
     flask_login.logout_user()
-    return flask.redirect(flask.url_for("start_page.html"))
+    return flask.redirect(flask.url_for("start_page"))
 
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
-    form = forms.SignIn()
+    form = forms.User()
     if form.validate_on_submit():
-        user = models.NewUser(
+        user = models.User(
             name=form.name.data,
             email=form.email.data,
             password=form.password.data,
@@ -98,9 +104,10 @@ def sign_up():
 
         db.session.add(user)
         db.session.commit()
-        return flask.redirect(flask.url_for('portfolio'))
+        return flask.redirect(flask.url_for('profile'))
     else:
-        print(form.errors)
+        if form.errors:
+            print(form.errors)
 
     return flask.render_template("sign_up.html", form=form)
 

@@ -5,30 +5,32 @@ from .mixins import ModelMixin
 
 from . import db, login_mgr
 
+followers_table = db.Table('followers',
+                           db.Column("follower_id", db.Integer(), db.ForeignKey("user.id")),
+                           db.Column("followed_id", db.Integer(), db.ForeignKey('user.id'))
+                           )
+
 @login_mgr.user_loader
 def user_loader(user_id):
-    return NewUser.query.get(user_id)
+    return User.query.get(user_id)
 
-class NewUser(db.Model, UserMixin, ModelMixin):
+class User(db.Model, UserMixin, ModelMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
-    email = db.Column(db.String(1000), unique=True)
-    password = db.Column(db.String(100), unique=True)
+    email = db.Column(db.String(1000))
+    password = db.Column(db.String(100))
 
-    # followers_table = db.Table('followers',
-    #                            db.Column("follower_id", db.Integer(), db.ForeignKey("user.id")),
-    #                            db.Column("followed_id", db.Integer(), db.ForeignKey('user.id'))
-    #                            )
-    #
-    # following = db.relationship(
-    #       "NewUser",
-    #       secondary=followers_table,
-    #       primaryjoin=(followers_table.c.follower_id  == id),
-    #       secondaryjoin=(followers_table.c.followed_id == id),
-    #       backref="followed_by"
-    # )
 
-    # add_my_recipe = db.relationship("AddRecipe", backref="user")
+
+    following = db.relationship(
+          "User",
+          secondary=followers_table,
+          primaryjoin=(followers_table.c.follower_id == id),
+          secondaryjoin=(followers_table.c.followed_id == id),
+          backref="followed_by"
+    )
+
+    add_my_recipe = db.relationship("AddRecipe", backref="user")
 
     # user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
@@ -47,7 +49,7 @@ class NewUser(db.Model, UserMixin, ModelMixin):
         if user_id == self.id:
             return True
 
-        user = NewUser.query.get(user_id)
+        user = User.query.get(user_id)
 
 
         if not user:
@@ -75,9 +77,14 @@ class AddRecipe(db.Model, ModelMixin):
     ingredients = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
+    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
-
-
+# class SearchResult(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     image = db.Column(db.String())
+#     title = db.Column(db.String(10000))
+#     ingredients = db.Column(db.Text)
+#     description = db.Column(db.Text)
 
 
 

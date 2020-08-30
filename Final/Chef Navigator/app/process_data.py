@@ -12,6 +12,13 @@ def search_by_ingredient(ingredients):
     params = {"apiKey": api_key,
               "query": ' '.join(ingredients)}
     response = requests.get(url, params)
-    print("ingredients:", ingredients)
-    print("RESPONSE:", response.json())
-    return response.json()
+    print(response.json())
+    recipe_info_url = 'https://api.spoonacular.com/recipes/{}/information'
+    results = response.json()['results']
+    recipes = []
+    for result in results:
+        print(result)
+        req = requests.get(recipe_info_url.format(result['id']), params={"apiKey": api_key})
+        print(req.text)
+        recipes.append(req.json())
+    return recipes

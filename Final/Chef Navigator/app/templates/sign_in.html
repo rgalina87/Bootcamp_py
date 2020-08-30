@@ -10,11 +10,11 @@
             text-align: center;
             color: darkgray;
           }
-          h4 {
+          p {
             font-size: 40px;
             font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
             text-align: center;
-            color: black;
+            color: #f10a0a;
           }
 
           form {
@@ -22,65 +22,45 @@
               margin: -25px 0 0 -25px;
           }
 
-          .all {
-              margin-top: 50px;
-            {#background-image: url({{ url_for('static', filename="sign_in.jpeg") }});#}
-          }
-
       </style>
 
-<div class="all">
+<body>
+<div class="card bg-dark">
+    <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">
+    <div class="card-img-overlay">
     <h5 class="card-title" id="card_title">Welcome to Chef Navigator</h5>
-    <h4>Please Sign In</h4>
+    <p>Please Sign In</p>
 
     <form method="post" class="form-inline my-2 my-lg-0">
         {{ form.csrf_token }}
   <div class="form-row align-items-center d-flex align-items-start flex-column bd-highlight mb-3">
 
     <div class="col-auto">
-{#        {{ form.name.label }}#}
-{#        {{ form.name() }}#}
       <label class="sr-only" for="inlineFormInput">Username</label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Usename">
+      <input name="email" type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Usename">
     </div>
     <div class="col-auto">
-{#        {{ form.password.label }}#}
-{#        {{ form.password() }}#}
        <label for="inputPassword2" class="sr-only">Password</label>
       <div class="input-group mb-2">
         <div class="input-group-prepend">
         </div>
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+        <input name="password" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
       </div>
     </div>
-    <div class="col-auto text-dark">
-      <div class="form-check mb-2">
-        <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-        <label class="form-check-label" for="autoSizingCheck">
-          Remember me
-        </label>
-      </div>
-    </div>
+{#    <div class="col-auto text-dark">#}
+{#      <div class="form-check mb-2">#}
+{#        <input class="form-check-input" type="checkbox" id="autoSizingCheck">#}
+{#        <label class="form-check-label" for="autoSizingCheck">#}
+{#          Remember me#}
+{#        </label>#}
+{#      </div>#}
+{#    </div>#}
     <div class="col-auto">
-
-{#        {{ form.submit(class="btn btn-dark") }}#}
-      <button type="submit" class="btn btn-dark mb-2">Sign In</button>
+      <button type="submit" class="btn md-2 btn-dark">Sign In</button>
     </div>
   </div>
 </form>
 </div>
-{#        {{ form.csrf_token }}#}
-{#        <div class="form-group">#}
-{#            {{form.name.label}}<br>#}
-{#            {{ form.name(class="col-auto")}}#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#            {{form.password.label}}<br>#}
-{#            {{ form.password(class="col-auto")}}#}
-{#        </div>#}
-{##}
-{#        {{ form.submit() }}#}
-{#  </div>#}
-{#</form>#}
-{#</div>#}
+</div>
+    </body>
 {% endblock %}

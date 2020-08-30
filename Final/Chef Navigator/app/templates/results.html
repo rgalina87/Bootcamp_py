@@ -1,21 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
 
+        .title {
+            font-size: 60px;
+            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+            text-align: center;
+            color: darkgray;
+        }
+        body{
+            background-color: #a76d43;
+      }
 
+      .text {
+            font-size: 30px;
+            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+            text-align: center;
+            color: black;
+      }
+
+</style>
+<h5 class="card-title title">Welcome to Chef Navigator</h5>
+<p class="text">Search Results</p>
     {%  for recipe in recipes %}
-        <div class="row row-cols-1 row-cols-md-3">
+        <div class="container">
+
+        <div class="card-row row-cols-1 row-cols-md-3">
   <div class="col mb-4">
     <div class="card">
-      <img src="{{ recipes['image'] }}" class="card-img-top" alt="...">
+      <img src="{{ recipe['image'] }}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{ recipes['title'] }}</h5> #???
-        <p class="card-text">{{ recipes['instructionsRequired'] }}</p> #??????
+        <h5 class="card-title">{{ recipe['title'] }}</h5>
+{#          <p class="card-text"><a href=" {{ recipe['sourceUrl'] }}"></a></p>#}
+{#      <p class="card-text">{{ recipe['sourceUrl'] }}"</p>#}
+          {% if current_user.is_authenticated %}
           <button type="submit" class="btn btn-info">Save to My Cookbook</button>
+          {% else %}
+            <div class="card-footer text-muted">
+    If you want to save this recipe <a href="{{ url_for('sign_in') }}">SignIn</a> or <a href="{{ url_for('sign_up') }}">SignUp</a>
+  </div>
+          {% endif %}
       </div>
     </div>
   </div>
         </div>
+   </div>
 {% endfor %}
 
 {% endblock %}

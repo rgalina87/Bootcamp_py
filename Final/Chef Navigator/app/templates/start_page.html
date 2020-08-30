@@ -21,20 +21,18 @@
             text-align: center;
             color: darkgray;
           }
-          p {
+
+          h3 {
             font-size: 25px;
             font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
             text-align: center;
-            color: brown;
+            color: #f10a0a;
           }
-
 
           .container {
             text-align: center;
             margin-top: 50px;
           }
-
-
 
       </style>
 
@@ -44,8 +42,8 @@
   <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">
   <div class="card-img-overlay">
     <h5 class="card-title" id="card_title">Chef Navigator</h5>
-    <p class="card-text">Your fridge is full of ingredients but you don't know what to cook.<br>
-        Search here.</p>
+    <h3 class="card-text">Your fridge is full of ingredients  or you have just few.<br> You don't know what to cook.<br>
+        <b>Search here.</b><br> Maybe you will find something special!</h3>
       <div class="container">
     <a href="{{ url_for('recipe_search') }}" class="btn btn-dark col-md-4 col-md-offset-4 text-center">Start Search</a>
       </div>
