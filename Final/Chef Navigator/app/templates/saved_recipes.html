@@ -1,22 +1,22 @@
 {% block content %}
 <style>
+    .card{
+        display: flex;
 
+    }
 </style>
-<h4>Here you can see recipes that you saved</h4>
+<h4>Here your saved recipes</h4>
+    {%  for recipe in user.get_cookbook_recipes() %}
 
-    <div class="row row-cols-1 row-cols-md-3">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card" style="width: 18rem">
+      <img src="{{ recipe['image'] }}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">{{ recipe['title'] }}</h5>
+        <a href="{{ recipe['sourceUrl'] }}" target="_blank">More information here</a>
 {#        <a href="/delete/{{recipe.id}}" class="btn btn-danger">Delete</a>#}
       </div>
     </div>
-  </div>
-</div>
-
+{% endfor %}
     <div class="btn2"></div>
     <a class="btn btn-dark btn-md" href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>
 {#    <a class="btn btn-danger btn-md" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>#}

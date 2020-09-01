@@ -20,22 +20,31 @@
             color: black;
       }
 
+      .btn{
+          margin-top: 10px;
+          margin-left: 50px;
+      }
+
 </style>
-<h5 class="card-title title">Welcome to Chef Navigator</h5>
+
+<div>
+<h5 class="title">Welcome to Chef Navigator</h5>
 <p class="text">Search Results</p>
-    {%  for recipe in recipes %}
+</div>
+
+{%  for recipe in recipes %}
         <div class="container">
 
-        <div class="card-row row-cols-1 row-cols-md-3">
+        <div class="card-row row-cols-3 row-cols-md-3">
+
   <div class="col mb-4">
     <div class="card">
       <img src="{{ recipe['image'] }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ recipe['title'] }}</h5>
-{#          <p class="card-text"><a href=" {{ recipe['sourceUrl'] }}"></a></p>#}
-{#      <p class="card-text">{{ recipe['sourceUrl'] }}"</p>#}
+      <a href="{{ recipe['sourceUrl'] }}" target="_blank">More information here</a>
           {% if current_user.is_authenticated %}
-          <button type="submit" class="btn btn-info">Save to My Cookbook</button>
+          <button type="submit" onclick="GetAjaxCall('{{ url_for('add_recipe', recipe_id=recipe['id'], recipe_name=recipe['title']) }}')" class="btn btn-info">Save to My Cookbook</button>
           {% else %}
             <div class="card-footer text-muted">
     If you want to save this recipe <a href="{{ url_for('sign_in') }}">SignIn</a> or <a href="{{ url_for('sign_up') }}">SignUp</a>
@@ -44,8 +53,15 @@
       </div>
     </div>
   </div>
+
         </div>
    </div>
 {% endfor %}
-
+<script>
+function GetAjaxCall(url){
+  $.ajax({
+    url: url,
+  });
+}
+</script>
 {% endblock %}

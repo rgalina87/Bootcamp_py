@@ -1,72 +1,37 @@
-{% block content %}
-<style>
-
-    body{
-
-    }
-
-</style>
-    <body>
-    <h4> Here you can add your recipes </h4>
-
+{#{% block content %}#}
+{#<style>#}
+{##}
+{##}
+{#</style>#}
+{#    <h4> Here you recipes </h4>#}
+{##}
 {#    <img src="{{ url_for('static', filename='coming-soon.jpg') }}" alt="" height="300px">#}
-
-<div class="row row-cols-1 row-cols-md-3">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.ingredients }}</p>
-          <p class="card-text">{{ post.description }}</p>
-         <small>
-            By {{ post.user.name }} on {{ post.created_at("full") }}
-        </small>
-          <a href="/delete/{{my_recipe_id}}" class="btn btn-danger">Delete</a>
-        <a href="/update/{{my_recipe_id}}" class="btn btn-success">Update</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.ingredients }}</p>
-          <p class="card-text">{{ post.description }}</p>
-         <small>
-            By {{ post.user.name}} on {{ post.created_at("full") }}
-        </small>
-          <a href="/delete/{{my_recipe_id}}" class="btn btn-danger">Delete</a>
-        <a href="/update/{{my_recipe_id}}" class="btn btn-success">Update</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.ingredients }}</p>
-          <p class="card-text">{{ post.description }}</p>
-         <small>
-            By {{ post.user.name}} on {{ post.created_at("full") }}
-        </small>
-          <a href="/delete/{{my_recipe_id}}" class="btn btn-danger">Delete</a>
-        <a href="/update/{{my_recipe_id}}" class="btn btn-success">Update</a>
-      </div>
-    </div>
-  </div>
-
-    <div class="btn">
-    <a class="btn btn-dark btn-lg " href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>
-    <a class="btn btn-dark btn-lg" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>
-    </div>
-        <div class="btn2">
-    <a class="btn btn-dark btn-md" href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>
-    <a class="btn btn-danger btn-md" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>
-    <a href="{{ url_for('.follow_user', user_id=user.id) }}" class="btn btn-dark bt-md">Follow</a>
-    </div>
-
-</body>
-{% endblock %}
+{#<form id="AddRecipe" class="form" action="" method="post" novalidate>#}
+{#  <div class="col mb-4">#}
+{#    <div class="card">#}
+{#      <img src="..." class="card-img-top" alt="...">#}
+{#      <div class="card-body">#}
+{#        <h5 class="card-title">{{ post.title }}</h5>#}
+{#        <p class="card-text">{{ post.ingredients }}</p>#}
+{#          <p class="card-text">{{ post.description }}</p>#}
+{#         <small>#}
+{#            By {{ post.user.name}} on {{ post.created_at("full") }}#}
+{#        </small>#}
+{#          <a href="/delete/{{ post_id }}" class="btn btn-danger">Delete</a>#}
+{#        <a href="/update/{{ post_id }}" class="btn btn-success">Update</a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{##}
+{#    <div class="btn">#}
+{#    <a class="btn btn-dark btn-md " href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>#}
+{#    <a class="btn btn-dark btn-lg" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>#}
+{#    </div>#}
+{#        <div class="btn2">#}
+{#    <a class="btn btn-dark btn-md" href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>#}
+{#    <a class="btn btn-danger btn-md" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>#}
+{#    <a href="{{ url_for('.follow_user', user_id=user.id) }}" class="btn btn-dark bt-md">Follow</a>#}
+{#    </div>#}
+{#</div>#}
+{#</form>#}
+{#{% endblock %}#}

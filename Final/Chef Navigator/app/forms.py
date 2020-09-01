@@ -21,11 +21,6 @@ class RecipeSearch(FlaskForm):
 
     submit = wtf.SubmitField("Search")
 
-# class SearchResult(FlaskForm):
-#     image = wtf.FileField("Image")
-#     title = wtf.StringField("Title")
-#     ingredients = wtf.TextAreaField("Ingredients")
-#     description = wtf.TextAreaField("Description")
 
 class AddRecipe(FlaskForm):
     title = wtf.StringField("Title: ")

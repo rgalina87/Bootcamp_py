@@ -19,21 +19,21 @@
 <p>Here you can add your recipes</p>
 
 
-<form method="post" class="needs-validation align-items-center d-flex align-items-start flex-column bd-highlight mb-3" novalidate>
+<form method="post" id="AddRecipe" class="needs-validation align-items-center d-flex align-items-start flex-column bd-highlight mb-3" novalidate>
     <div>
-    <h2> {{ post.title }}</h2>
+    <h2> {{ form.title() }}</h2>
     </div>
     <div class="post-content">
         <li>
-            {{ post.ingredients }}
+            {{ form.ingredients() }}
         </li>
 
         <p>
-            {{ post.description }}
+            {{ form.description() }}
         </p>
     </div>
 
-    {{ form.submit(class="btn btn-success", onclick="sendNewPostData") }}
+    {{ form.submit(class="btn btn-success", onclick="sendNewPostData()") }}
 </form>
 
 {% endblock %}
