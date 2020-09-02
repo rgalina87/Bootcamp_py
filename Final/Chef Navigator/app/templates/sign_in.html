@@ -5,7 +5,7 @@
     <style>
 
           h5 {
-            font-size: 60px;
+            font-size: 50px;
             font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
             text-align: center;
             color: darkgray;
@@ -14,7 +14,7 @@
             font-size: 40px;
             font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
             text-align: center;
-            color: #f10a0a;
+            color: black;
           }
 
           form {
@@ -22,12 +22,16 @@
               margin: -25px 0 0 -25px;
           }
 
+          body{
+              background-color: #a76d43;
+          }
+
       </style>
 
 <body>
-<div class="card bg-dark">
-    <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">
-    <div class="card-img-overlay">
+<div class="">
+{#    <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">#}
+    <div class="">
     <h5 class="card-title" id="card_title">Welcome to Chef Navigator</h5>
     <p>Please Sign In</p>
 
@@ -47,6 +51,7 @@
         <input name="password" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Password">
       </div>
     </div>
+      {# --Future upgrades-- #}
 {#    <div class="col-auto text-dark">#}
 {#      <div class="form-check mb-2">#}
 {#        <input class="form-check-input" type="checkbox" id="autoSizingCheck">#}
@@ -55,6 +60,7 @@
 {#        </label>#}
 {#      </div>#}
 {#    </div>#}
+
     <div class="col-auto">
       <button type="submit" class="btn md-2 btn-dark">Sign In</button>
     </div>

@@ -31,9 +31,25 @@
 
   </div>
 </nav>
+  <main role="main" class="container">
+    <div class="flashed-msgs">
+                {% for msg in get_flashed_messages(category_filter="success") %}
+                    <div class="alert alert-success" role="alert">
+                        {{ msg }}
+                    </div>
+                {% endfor %}
+                {% for msg in get_flashed_messages(category_filter="danger") %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ msg }}
+                    </div>
+                {% endfor %}
+            </div>
+
 {% block content %}
 
 {% endblock %}
+  </main>
+
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

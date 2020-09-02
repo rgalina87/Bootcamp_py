@@ -25,6 +25,18 @@
           margin-left: 50px;
       }
 
+      .card{
+
+          display: inline-flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: space-between;
+          width: 18rem;
+          margin-bottom: 20px;
+          margin-left: 20px;
+      }
+
 </style>
 
 <div>
@@ -33,11 +45,6 @@
 </div>
 
 {%  for recipe in recipes %}
-        <div class="container">
-
-        <div class="card-row row-cols-3 row-cols-md-3">
-
-  <div class="col mb-4">
     <div class="card">
       <img src="{{ recipe['image'] }}" class="card-img-top" alt="...">
       <div class="card-body">
@@ -52,10 +59,7 @@
           {% endif %}
       </div>
     </div>
-  </div>
 
-        </div>
-   </div>
 {% endfor %}
 <script>
 function GetAjaxCall(url){

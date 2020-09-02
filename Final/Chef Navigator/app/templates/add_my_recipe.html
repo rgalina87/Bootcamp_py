@@ -1,39 +1,41 @@
-{% block content %}
-    <style>
+{# --Future upgrades-- #}
 
-          h5 {
-            font-size: 80px;
-            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-            text-align: center;
-            color: darkgray;
-          }
-          p {
-            font-size: 30px;
-            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-            text-align: center;
-            color: black;
-          }
-
-    </style>
-    <h5 class="card-title" id="card_title">Chef Navigator</h5>
-<p>Here you can add your recipes</p>
-
-
-<form method="post" id="AddRecipe" class="needs-validation align-items-center d-flex align-items-start flex-column bd-highlight mb-3" novalidate>
-    <div>
-    <h2> {{ form.title() }}</h2>
-    </div>
-    <div class="post-content">
-        <li>
-            {{ form.ingredients() }}
-        </li>
-
-        <p>
-            {{ form.description() }}
-        </p>
-    </div>
-
-    {{ form.submit(class="btn btn-success", onclick="sendNewPostData()") }}
-</form>
-
-{% endblock %}
+{#{% block content %}#}
+{#    <style>#}
+{##}
+{#          h5 {#}
+{#            font-size: 80px;#}
+{#            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;#}
+{#            text-align: center;#}
+{#            color: darkgray;#}
+{#          }#}
+{#          p {#}
+{#            font-size: 30px;#}
+{#            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;#}
+{#            text-align: center;#}
+{#            color: black;#}
+{#          }#}
+{##}
+{#    </style>#}
+{#    <h5 class="card-title" id="card_title">Chef Navigator</h5>#}
+{#<p>Here you can add your recipes</p>#}
+{##}
+{##}
+{#<form method="post" id="AddRecipe" class="needs-validation align-items-center d-flex align-items-start flex-column bd-highlight mb-3" novalidate>#}
+{#    <div>#}
+{#    <h2> {{ form.title() }}</h2>#}
+{#    </div>#}
+{#    <div class="post-content">#}
+{#        <li>#}
+{#            {{ form.ingredients() }}#}
+{#        </li>#}
+{##}
+{#        <p>#}
+{#            {{ form.description() }}#}
+{#        </p>#}
+{#    </div>#}
+{##}
+{#    {{ form.submit(class="btn btn-success", onclick="sendNewPostData()") }}#}
+{#</form>#}
+{##}
+{#{% endblock %}#}

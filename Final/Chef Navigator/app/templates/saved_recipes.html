@@ -1,14 +1,21 @@
 {% block content %}
 <style>
-    .card{
-        display: flex;
+      .card{
+          display: inline-flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: center;
+          width: 18rem;
+          margin-bottom: 20px;
+          margin-left: 20px;
+      }
 
-    }
 </style>
 <h4>Here your saved recipes</h4>
     {%  for recipe in user.get_cookbook_recipes() %}
 
-    <div class="card" style="width: 18rem">
+    <div class="card">
       <img src="{{ recipe['image'] }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ recipe['title'] }}</h5>
@@ -19,7 +26,10 @@
 {% endfor %}
     <div class="btn2"></div>
     <a class="btn btn-dark btn-md" href="{{ url_for('recipe_search') }}" role="button">Recipe Search</a>
+
+    {# --Future upgrades-- #}
 {#    <a class="btn btn-danger btn-md" href="{{ url_for('add_my_recipe') }}" role="button">Add My Recipe</a>#}
 {#    <a href="{{ url_for('.follow_user', user_id=user.id) }}" class="btn btn-dark bt-md">Follow</a>#}
+
     </div>
 {% endblock %}

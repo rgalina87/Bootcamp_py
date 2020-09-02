@@ -21,10 +21,10 @@ class RecipeSearch(FlaskForm):
 
     submit = wtf.SubmitField("Search")
 
-
-class AddRecipe(FlaskForm):
-    title = wtf.StringField("Title: ")
-    ingredients = wtf.TextAreaField("Ingredients: ")
-    description = wtf.TextAreaField("Description: ")
-
-    submit = wtf.SubmitField("Add Recipe!")
+    # --Future upgrades-- #
+# class AddRecipe(FlaskForm):
+#     title = wtf.StringField("Title: ")
+#     ingredients = wtf.TextAreaField("Ingredients: ")
+#     description = wtf.TextAreaField("Description: ")
+#
+#     submit = wtf.SubmitField("Add Recipe!")
