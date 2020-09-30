@@ -4,11 +4,10 @@ import flask_login
 from . import app, db, login_mgr
 from . import forms, models, process_data
 
-
-
 @app.route('/')
 def start_page():
     return flask.render_template("start_page.html")
+
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
@@ -46,8 +45,9 @@ def add_recipe(recipe_name, recipe_id):
 def saved_recipes():
 
     print(flask_login.current_user.cookbook)
-    flask.flash("Saved", "success")
+
     return flask.render_template("saved_recipes.html")
+
 
 @app.route("/sign_in", methods=["GET", "POST"])
 def sign_in():
@@ -104,13 +104,7 @@ def sign_up():
 
     # return flask.redirect(flask.url_for('profile', user_id=user_id))
 
-# @app.route('/add_my_post', methods=['GET', 'POST'])
-# @flask_login.login_required
-# def add_my_post():
-#
-#     add_my_post = forms.AddRecipe()
-#
-#     return flask.render_template("add_my_recipe.html", form=add_my_post)
+
 
 # @app.route('/add_my_recipe', methods=['GET', 'POST'])
 # def add_my_recipe():
@@ -129,9 +123,22 @@ def sign_up():
 #         flask.flash("Something goes wrong", "danger")
 #         return flask.render_template("add_my_recipe.html", form=form)
 
-
+# @app.route('/my_recipe', methods=['GET', 'POST'])
+# def my_recipe():
+#     return flask.render_template("my_recipe.html")
+#
+# @app.route('/add_my_recipe', methods=['GET', 'POST'])
+# def add_my_recipe():
+#     return flask.render_template("add_my_recipe.html")
+#
+# @app.route('/add_my_post', methods=['GET', 'POST'])
+# def add_my_post():
+#
+#     add_my_post = forms.AddRecipe()
+#
+#     return flask.render_template("add_my_recipe.html", form=add_my_post)
+#
 # @app.route("/post/<int:post_id>", methods=['GET', 'POST'])
-# @flask_login.login_required
 # def view_post(post_id):
 #
 #     post = models.AddRecipe.query.get(post_id)

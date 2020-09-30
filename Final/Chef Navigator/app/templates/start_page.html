@@ -26,7 +26,7 @@
             font-size: 25px;
             font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
             text-align: center;
-            color: black;
+            color: #8f0c0c;
           }
 
           .container {
@@ -35,7 +35,9 @@
           }
 
           body{
-              background-color: #a76d43;
+              background-image: url("{{ url_for('static', filename='hunger_games.jpeg') }}");
+              background-repeat: no-repeat;
+              background-size: 100%;
           }
 
       </style>
@@ -44,7 +46,7 @@
   <body>
     <div class="">
 {#  <img src="{{ url_for('static', filename='hunger_games.jpeg') }}" class="card-img" alt="..."  height="664">#}
-{#  <div class="card-img-overlay">#}
+  <div class="">
     <h5 class="card-title" id="card_title">Chef Navigator</h5>
     <h3 class="card-text">Your fridge is full of ingredients  or you have just few.<br> You don't know what to cook.<br>
         <b>Search here.</b><br> Maybe you will find something special!</h3>
@@ -53,6 +55,8 @@
       </div>
   </div>
 </div>
+
+  </body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

@@ -22,6 +22,7 @@ class User(db.Model, UserMixin, ModelMixin):
     email = db.Column(db.String(1000))
     password = db.Column(db.String(100))
     cookbook = db.relationship("Recipe", secondary=cookbooks, backref="user")
+    # posts = db.relationship("AddRecipe", backref="user")
 
     def add_recipe(self, recipe):
         if recipe not in self.cookbook:
@@ -67,15 +68,18 @@ class Recipe(db.Model, ModelMixin):
         return obj
 
 
-        # --Future upgrades-- #
-    # class AddRecipe(db.Model, ModelMixin):
-    #     id = db.Column(db.Integer, primary_key=True)
-    #     title = db.Column(db.String(50), nullable=False)
-    #     ingredients = db.Column(db.Text, nullable=False)
-    #     description = db.Column(db.Text, nullable=False)
-    #
-    #     user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
-    #     posts   = db.relationship("Post", backref="user")
+        # --Future upgrades--
+class AddRecipe(db.Model, ModelMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50), nullable=False)
+    ingredients = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+
+    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+
+    # def add_my_post(self, post):
+    #     self.posts.append(post)
+    #     self.update()
 
     # followers_table = db.Table('followers',
     #                            db.Column("follower_id", db.Integer(), db.ForeignKey("user.id")),
@@ -90,10 +94,6 @@ class Recipe(db.Model, ModelMixin):
     #       backref="followed_by"
     # )
 
-
-    # def add_my_post(self, post_obj):
-    #     self.posts.append(post_obj)
-    #     self.update()
 
     # def follow(self, user_id):
     #     if user_id == self.id:

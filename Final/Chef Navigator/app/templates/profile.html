@@ -46,21 +46,21 @@
 
 <h1> Welcome, {{ current_user.name }}</h1>
 <div class = container>
+
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-{# --Future upgrades-- #}
-        {#  <li class="nav-item">#}
-{#    <a class="nav-link active" id="my-recipe-tab" data-toggle="tab" href="#my-recipe" role="tab" aria-controls="my-recipe" aria-selected="false">My Recipes</a>#}
-{#  </li>#}
-
   <li class="nav-item">
     <a class="nav-link" id="saved-recipes-tab" data-toggle="tab" href="#saved-recipe" role="tab" aria-controls="saved-recipe" aria-selected="true">Saved Recipes</a>
   </li>
-</ul>
 
 {# --Future upgrades-- #}
-    {#<div class="tab-content" id="myTabContent">#}
-{#  <div class="tab-pane fade show active" id="my-recipe" role="tabpanel" aria-labelledby="my-recipe-tab">#}
+
+{#          <li class="nav-item">#}
+{#    <a class="nav-link active" id="my-recipe-tab" data-toggle="tab" href="#my-recipe" role="tab" aria-controls="my-recipe" aria-selected="true">My Recipes</a>#}
+{#  </li>#}
+{#</ul>#}
+
+{#    <div class="tab-content" id="myTabContent">#}
+{#  <div class="tab-pane show active" id="my-recipe" role="tabpanel" aria-labelledby="my-recipe-tab">#}
 {#  {% include 'my_recipe.html' %}#}
 {#</div>#}
 
