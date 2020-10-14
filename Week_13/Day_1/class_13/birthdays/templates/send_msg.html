@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <form action="" method="post">
+        <div class="form-group">
+            {{ form.content.label }}
+            {{ form.content() }}
+            {% for error in form.content.errors %}
+                <small style="color:red">{{ error }}</small>
+            {% endfor %}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+{% endblock %}

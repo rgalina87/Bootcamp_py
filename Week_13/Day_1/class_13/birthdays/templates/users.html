@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h3>Current users:</h3>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} ({{ user.age }} years old)</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

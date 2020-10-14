@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align: center">Get Info</h1>
+    {% if ...|length < 1 %}
+    <h4 style="text-align: center">Enter phone number!</h4>
+    {% else %}
+</div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+        </tr>
+    {% for ... in ... %}
+        <tr>{{ ...task.content }}</tr>
+    {% endfor %}
+    </table>
+     <div class="form">
+        <form action="/" method="POST">
+            <input type="number" name="content" id="content">
+            <input type="submit" value="Get Name">
+        </form>
+    </div>
+</div>
+{% endblock %}
