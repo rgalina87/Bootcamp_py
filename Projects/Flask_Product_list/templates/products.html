@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Catalogue!</h2>
+    {% for product in products %}
+        <div class = "card-columns">
+            <div class="card" style="width: 18rem;">
+              <img src="{{ product["ProductPicUrl"] }}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">{{ product["Name"] }}</h5>
+                <p class="card-text">{{ product["Description"] }}</p>
+                <a href="{{  url_for("product", product_id=product["ProductId"])}}" class="btn btn-primary">More</a>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

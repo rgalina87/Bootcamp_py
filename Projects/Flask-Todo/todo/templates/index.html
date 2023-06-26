@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Todo list</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">My Todo list</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+            <th>Status</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.to_do }}</td>
+                <td>{{ task.date }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+{#                    <br>#}
+{#                    <a href="/update/{{task.id}}">Update</a>#}
+                    {% if complete() = Fasle %}
+                    <th><input type="checkbox" value="Done"></th>
+                    {% else %}
+                    <th><input style="color: green" type="checkbox" value="Done"></th>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
